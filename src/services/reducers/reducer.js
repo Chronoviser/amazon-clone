@@ -1,6 +1,7 @@
 export const initialState = {
     cart: [],
-    amount: 0
+    amount: 0,
+    user: null
 };
 
 const reducer = (state, action) => {
@@ -10,6 +11,31 @@ const reducer = (state, action) => {
                 ...state,
                 cart: [...state.cart, action.item],
                 amount: state.amount + parseInt(action.item.price.split('.')[0].replace(/,/g, ''))
+            }
+
+        case 'REMOVE_FROM_CART':
+            const index = state.cart.findIndex(
+                (cartItem) => cartItem.id === action.id
+            );
+
+            let newCart = [...state.cart];
+            let newAmount = state.amount;
+
+            if (index >= 0) {
+                newAmount -= parseInt(newCart[index].price.split('.')[0].replace(/,/g, ''));
+                newCart.splice(index, 1);
+            }
+
+            return {
+                ...state,
+                cart: newCart,
+                amount: newAmount
+            }
+
+        case 'SET_USER':
+            return {
+                ...state,
+                user: action.user
             }
 
         default:

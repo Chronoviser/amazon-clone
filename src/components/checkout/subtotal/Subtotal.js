@@ -13,7 +13,7 @@ function Subtotal() {
                     (value) => (
                         <>
                             <p>
-                                Subtotal ({cart.length} items):
+                                Subtotal ({cart.length} items):&nbsp;
                                 <strong>{value}</strong>
                             </p>
                             <small className="subtotal-gift">

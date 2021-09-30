@@ -1,0 +1,101 @@
+.signin {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+.signin-logo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    object-fit: contain;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.signin-container {
+    width: 400px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.signin-container-top {
+    padding: 25px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+.signin-container-top-title {
+    font-size: 25px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.signin-container-top > form > h5 {
+    margin-top: 10px;
+}
+
+.signin-container-top > form > input {
+    width: 96%;
+    padding: 6px;
+}
+
+.signin-container-top > form > button {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background: #f0c14b;
+    border-radius: 2px;
+    width: 100%;
+    padding: 7px;
+    border: 1px solid;
+    border-color: #a88734 #9c7e31 #846a29;
+    color: #111;
+    text-align: center;
+    cursor: pointer;
+}
+
+.signin-container-top-terms {
+    font-size: 12px;
+}
+
+.signin-container-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signin-container-bottom-title {
+    font-size: 13px;
+    color: grey;
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    align-items: center;
+    width: 100%;
+}
+
+.signin-container-line {
+    width: 30%;
+    height: 1px;
+    border-bottom: 1px solid lightgrey;
+}
+
+.signin-container-newtoamazon {
+    margin-left: 26px;
+    margin-right: 26px;
+}
+
+.signin-container-bottom > button {
+    margin-bottom: 15px;
+    border-radius: 2px;
+    width: 100%;
+    padding: 7px;
+    border: 1px solid;
+    border-color: grey;
+    color: #111;
+    text-align: center;
+    cursor: pointer;
+}

@@ -9,6 +9,7 @@
 .checkout-content {
     padding: 20px;
     display: flex;
+    justify-content: space-between;
 }
 
 .checkout-left {
@@ -23,7 +24,6 @@
 }
 
 .checkout-left-title {
-    
     padding: 10px;
     border-bottom: 1px solid lightgray;
 }
