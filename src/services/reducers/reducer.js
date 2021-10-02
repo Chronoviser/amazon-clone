@@ -1,7 +1,8 @@
 export const initialState = {
     cart: [],
     amount: 0,
-    user: null
+    user: null,
+    category: "All"
 };
 
 const reducer = (state, action) => {
@@ -38,6 +39,18 @@ const reducer = (state, action) => {
                 user: action.user
             }
 
+        case 'EMPTY_CART':
+            return {
+                ...state,
+                cart: [],
+                amount: 0
+            }
+
+        case 'SET_CATEGORY':
+            return {
+                ...state,
+                category: action.category
+            }
         default:
             return state
     }

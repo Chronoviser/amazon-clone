@@ -1,9 +1,11 @@
 import './Product.css';
+import { Link, useHistory } from 'react-router-dom';
 import { useStateValue } from '../../../provider/StateProvider';
 
-function Product({ id, title, price, rating, img }) {
+function Product({ id, title, price, rating, category, img }) {
 
-    const [{ cart }, dispatch] = useStateValue();
+    const [{ }, dispatch] = useStateValue();
+    const history = useHistory();
 
     const addToCart = () => {
         // dispatch some action into data layer
@@ -14,9 +16,26 @@ function Product({ id, title, price, rating, img }) {
                 title: title,
                 price: price,
                 rating: rating,
+                category: category,
                 img: img
             }
         })
+    }
+
+    const showProductDetails = () => {
+        history.push({
+            pathname: `/${id}`,
+            state: {
+                data: {
+                    id: id,
+                    title: title,
+                    price: price,
+                    rating: rating,
+                    category: category,
+                    img: img
+                }
+            }
+        });
     }
 
     return (
@@ -29,11 +48,11 @@ function Product({ id, title, price, rating, img }) {
                 </p>
                 <div className="product-info-rating">
                     {
-                        Array(rating).fill().map((_, i) => <p>⭐</p>)
+                        Array(rating).fill().map((_, i) => <p key={i}>⭐</p>)
                     }
                 </div>
             </div>
-            <img src={img} alt="" />
+            <img src={img} alt="" onClick={showProductDetails} />
             <button onClick={addToCart}>Add to Cart</button>
         </div>
     );
