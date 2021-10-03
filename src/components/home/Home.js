@@ -7,7 +7,7 @@ import { useStateValue } from '../../provider/StateProvider';
 function Home() {
 
     const [products, setProducts] = useState([]);
-    const [{ category }, dispatch] = useStateValue();
+    const [{ category }] = useStateValue();
 
     useEffect(() => {
         db
@@ -17,12 +17,24 @@ function Home() {
             ));
     }, [])
 
+
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        let slider = setInterval(() => {
+            setIndex((index + 1) % 7);
+        }, 8000);
+
+        return () => clearInterval(slider);
+
+    }, [index]);
+
     let p2s = [], p3s = [], temp = [];
     return (
         <div className="home">
             <div className="home-container">
                 <img
-                    src="https://m.media-amazon.com/images/I/71FSVYGiPEL._SX3000_.jpg"
+                    src={`assets/bg${index + 1}.jpg`}
                     alt=""
                     className="home-container-image"
                 />

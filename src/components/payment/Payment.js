@@ -41,7 +41,7 @@ function Payment() {
         e.preventDefault();
         setProcessing(true);
 
-        const payload = await stripe.confirmCardPayment(clientSecret, {
+        await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: elements.getElement(CardElement)
             }
@@ -117,7 +117,7 @@ function Payment() {
                     </div>
                     <div className="payment-section-details">
                         <form onSubmit={handleSubmit}>
-                            <CardElement onChange={handleChange} />
+                            <CardElement onChange={handleChange}/>
                             <div className="payment-price-container">
                                 <CurrencyFormat
                                     renderText={

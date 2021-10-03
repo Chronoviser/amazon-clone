@@ -43,3 +43,9 @@
   color: #111;
   cursor: pointer;
 }
+
+.payment-price-container > button:disabled {
+  background-color: lightgray;
+  border: none;
+  cursor: default;
+}
