@@ -1,4 +1,4 @@
-# [Amazon Clone](https://clone-6213a.web.app/checkout)
+# [Amazon Clone](https://clone-6213a.web.app)
 
 ### This is a Complete Amazon Clone in React & Firebase
 
