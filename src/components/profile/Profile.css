@@ -1,0 +1,51 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+}
+
+.profile-container {
+  width: 50%;
+}
+
+.profile-title {
+  margin-bottom: 20px;
+  font-weight: 650;
+}
+
+.profile-form > form > h5 {
+  margin-top: 7px;
+}
+
+.profile-form > form > input {
+  width: 66%;
+  padding: 6px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+
+.profile-form > form > button,
+.profile-signout > button {
+  display: block;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  background: #f3c551;
+  border-radius: 2px;
+  padding: 7px;
+  border: none;
+  border-radius: 10px;
+  color: #111;
+  text-align: center;
+  cursor: pointer;
+}
+
+.profile-form > form > button:hover {
+  background: #e4b744;
+}
+
+.profile-signout > button:hover {
+  color: white;
+  background-color: rgb(247, 29, 29);
+}

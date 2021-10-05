@@ -11,7 +11,7 @@ function Checkout() {
         <div className="checkout">
             <img
                 className="checkout-left-ad"
-                src="https://s301.podbean.com/pb/74962c7ea1a789ef54ef49d9efacb779/6154702e/data1/fs156/9265397/uploads/Podbean_FINALFINAL_2021a8cyjj.jpg?pbss=9109a767-98ce-5541-afee-bcf65f01f0ed"
+                src="https://i.ibb.co/1XtjXb3/Stihl-Banner-ad-12.jpg"
                 alt=""
             />
             <div className="checkout-content">

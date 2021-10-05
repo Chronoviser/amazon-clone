@@ -28,7 +28,7 @@ function Signin() {
             <Link to="/">
                 <img
                     className="signin-logo"
-                    src="https://www.india.com/wp-content/uploads/2016/01/amazon-india-logo.jpg222.jpg"
+                    src="https://i.ibb.co/L6HYg3B/amazon-india-logo-jpg222.jpg"
                     alt=""
                 />
             </Link>

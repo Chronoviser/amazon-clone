@@ -1,19 +1,27 @@
 import './Header.css';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useStateValue } from '../../provider/StateProvider';
-import { auth } from '../../firebase';
 import { Categories } from '../../constants/Constants';
 
 function Header() {
 
     const [{ cart, user }, dispatch] = useStateValue();
+    const history = useHistory();
 
-    const handleAuthentication = () => {
+    const gotoProfile = () => {
         if (user) {
-            auth.signOut();
+            history.push('/profile');
         }
+    }
+
+    const changeCategory = (cat) => {
+        if (window.location.pathname !== "/") {
+            history.push('/');
+        }
+
+        dispatch({ type: "SET_CATEGORY", category: cat });
     }
 
     return (
@@ -36,7 +44,7 @@ function Header() {
                 </div>
                 <div className="header-nav">
                     <Link to={!user && "/signin"}>
-                        <div className="header-option" onClick={handleAuthentication}>
+                        <div className="header-option" onClick={gotoProfile}>
                             <span className="header-option-1">
                                 {
                                     user
@@ -44,7 +52,7 @@ function Header() {
                                         : "Hello"
                                 }
                             </span>
-                            <span className="header-option-2">{user ? 'Sign out' : 'Sign in'}</span>
+                            <span className="header-option-2">{user ? 'Account' : 'Sign in'}</span>
                         </div>
                     </Link>
                     <Link to="/orders">
@@ -68,13 +76,13 @@ function Header() {
             <div className="header-bottom">
                 <p
                     className="header-bottom-first"
-                    onClick={() => dispatch({ type: "SET_CATEGORY", category: "All" })}
+                    onClick={() => changeCategory("All")}
                 >All</p>
                 {
                     Categories.map((c, _) =>
                         <p
                             key={_}
-                            onClick={() => dispatch({ type: "SET_CATEGORY", category: c })}
+                            onClick={() => changeCategory(c)}
                         >{c}</p>
                     )
                 }

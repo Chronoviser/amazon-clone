@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import './Signup.css';
-import { auth } from '../../../firebase';
+import { db, auth } from '../../../firebase';
 
 function Signup() {
 
@@ -18,7 +18,24 @@ function Signup() {
             .createUserWithEmailAndPassword(email, password)
             .then((auth) => {
                 if (auth) {
-                    history.push("/");
+                    db
+                        .collection('users')
+                        .doc(auth.user.uid)
+                        .collection('info')
+                        .doc('info')
+                        .set({
+                            userInfo: {
+                                'name': name,
+                                'email': email,
+                                'mobile': "",
+                                'region': "",
+                                'city': "",
+                                'pincode': "",
+                                'flat': ""
+                            },
+                            cart: [],
+                            amount: 0
+                        }).then((_) => history.push('/'));
                 }
             })
             .catch(error => alert(error.message));
@@ -29,7 +46,7 @@ function Signup() {
             <Link to="/">
                 <img
                     className="signup-logo"
-                    src="https://www.india.com/wp-content/uploads/2016/01/amazon-india-logo.jpg222.jpg"
+                    src="https://i.ibb.co/L6HYg3B/amazon-india-logo-jpg222.jpg"
                     alt=""
                 />
             </Link>
